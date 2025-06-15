@@ -1,0 +1,124 @@
+<app-title [titleType]="false">Richiedi un<br>appuntamento</app-title>
+<section class="appointment-sector">
+  <mat-stepper orientation="vertical" [linear]="false" #stepper>
+    <mat-step [stepControl]="appointmentFormFirst">
+      <form [formGroup]="appointmentFormFirst">
+        <ng-template matStepLabel>Scelta prestazione</ng-template>
+        <div class="step-container">
+          <div class="fields-container">
+            <mat-form-field>
+              <mat-label for="location">Studio Dentistico</mat-label>
+              <mat-select id="location" formControlName="location">
+                <mat-option [value]="-1">--</mat-option>
+                @for (studio of locations; track studio) {
+                  <mat-option [value]="studio.ID">{{studio.address}} {{studio.civicNumber}}, {{studio.city}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label for="dentist">Dottore</mat-label>
+              <mat-select id="dentist" formControlName="dentist">
+                <mat-option [value]="-1">--</mat-option>
+                @for (dentista of dentists; track dentista) {
+                  <mat-option [value]="dentista.ID">{{dentista.qualifier}} {{dentista.firstName}} {{dentista.lastName}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label for="intervention">Intervento</mat-label>
+              <mat-select id="intervention" formControlName="intervention">
+                @for (intervention of interventions; track intervention) {
+                  <mat-option [value]="intervention.ID">{{intervention.name}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Avanti</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="appointmentFormSecond">
+      <form [formGroup]="appointmentFormSecond">
+        <ng-template matStepLabel>Generalità cliente</ng-template>
+        <div class="step-container">
+          <div class="fields-container">
+            <mat-form-field>
+              <mat-label for="firstName">Nome</mat-label>
+              <input matInput type="text" id="firstName" formControlName="firstName" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label for="lastName">Cognome</mat-label>
+              <input matInput type="text" id="lastName" formControlName="lastName" />
+            </mat-form-field>
+          </div>
+          <div class="fields-container">
+            <mat-form-field>
+              <mat-label for="phone">Telefono</mat-label>
+              <input matInput type="text" id="phone" formControlName="phone" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label for="email">Email</mat-label>
+              <input matInput type="email" id="email" formControlName="email" />
+            </mat-form-field>
+          </div>
+          <div class="fields-container">
+            <mat-checkbox id="isForChild" formControlName="isForChild">Intervento per minore</mat-checkbox>
+          </div>
+          <div class="fields-container">
+            <mat-form-field *ngIf="appointmentFormSecond.value.isForChild">
+              <mat-label for="childName">Nome del minore</mat-label>
+              <input matInput type="text" id="childName" formControlName="childName" />
+            </mat-form-field>
+            <mat-form-field *ngIf="appointmentFormSecond.value.isForChild">
+              <mat-label for="childAge">Età del minore</mat-label>
+              <input matInput type="number" id="childAge" formControlName="childAge" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Indietro</button>
+          <button mat-button matStepperNext>Avanti</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="appointmentFormThird">
+      <form [formGroup]="appointmentFormThird">
+        <ng-template matStepLabel>Scelta data e orario</ng-template>
+        <div class="step-container">
+          <div class="fields-container">
+            <mat-form-field>
+              <mat-label for="date">Scegli una data</mat-label>
+              <input matInput [matDatepicker]="picker" id="date" formControlName="date" [(ngModel)]="time">
+              <mat-hint>DD/MM/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Orario di inizio</mat-label>
+              <input matInput [matTimepicker]="picker2" id="startTime" formControlName="startTime" [(ngModel)]="time">
+              <mat-timepicker-toggle matIconSuffix [for]="picker2"/>
+              <mat-timepicker #picker2/>
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Indietro</button>
+          <button mat-button matStepperNext>Avanti</button>
+        </div>   
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Fatto</ng-template>
+      <div class="step-container">
+        <button mat-raised-button>Invia</button>
+        <p>La sua richiesta verrà valutata al più presto. Grazie.</p>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Indietro</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</section>

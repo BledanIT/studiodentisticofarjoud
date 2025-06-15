@@ -1,0 +1,14 @@
+<section class="location-sector">
+    <h2 class="title-text text-black">{{locations[locID].title}}</h2>
+        <div class="location-info">
+            <div class="maps-viewer">
+                <div class="map-container">
+                    <google-map [center]="locations[locID].center" [zoom]="zoom" [options]="mapOptions">
+                    <map-marker *ngFor="let marker of locations[locID].markers" [position]="marker"></map-marker>
+                    </google-map>
+                </div>
+                <iframe class="street-view" [src]="transformLink(locations[locID].streetView)" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="fs-5">{{locations[locID].description}}</p>
+        </div>
+</section>

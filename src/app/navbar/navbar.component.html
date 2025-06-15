@@ -1,0 +1,21 @@
+<nav mat-toolbar class="navbar bg-white fixed-top shadow">
+    <div class="container-fluid">
+        <a routerLink="" routerLinkActive #rlahome="routerLinkActive" [ngClass]="rlahome.isActive ? activeClass : inactiveClass" [routerLinkActiveOptions]="{exact: true}">
+            <h1 class="title-text title-color-primary">Studi Dentistici<br><strong>Farjoud</strong></h1>
+        </a>
+        <div class="large-menu">
+            <a mat-raised-button routerLink="" routerLinkActive #rlahome="routerLinkActive" [ngClass]="rlahome.isActive ? activeClass : inactiveClass" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            <a mat-raised-button routerLink="where" routerLinkActive #rlawhere="routerLinkActive" [ngClass]="rlawhere.isActive ? activeClass : inactiveClass" [routerLinkActiveOptions]="{exact: true}">Dove siamo</a>
+            <a mat-raised-button routerLink="pricing" routerLinkActive #rlapricing="routerLinkActive" [ngClass]="rlapricing.isActive ? activeClass : inactiveClass" [routerLinkActiveOptions]="{exact: true}">Tariffe</a>
+            <a mat-flat-button class="date-button" routerLink="appointment" routerLinkActive #rladate="routerLinkActive" [ngClass]="rladate.isActive ? activeClass : inactiveClass" [routerLinkActiveOptions]="{exact: true}">Richiedi un appuntamento</a>
+        </div>
+        <mat-menu #navMenu="matMenu" class="small-menu">
+            <a mat-menu-item routerLink="">Home</a>
+            <a mat-menu-item routerLink="where">Dove siamo</a>
+            <a mat-menu-item routerLink="pricing">Tariffe</a>
+            <a mat-menu-item routerLink="appointment">Richiedi un appuntamento</a>
+        </mat-menu>
+        <button mat-icon-button class="open-menu" [matMenuTriggerFor]="navMenu"><mat-icon>menu</mat-icon></button>
+    </div>
+</nav>
+

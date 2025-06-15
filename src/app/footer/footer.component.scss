@@ -1,0 +1,47 @@
+@import "../app.component.scss";
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    row-gap: 2rem;
+    padding: 1rem;
+    @include textBlackOutline();
+    
+    @media (min-width: 1280px) and (orientation: landscape) {
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: "logo . . ."
+        "contacts address address social"
+        "contacts address address ."
+        ". . . copyright";
+    }
+    .title-text {
+        justify-self: center;
+
+        @media (min-width: 1280px) and (orientation: landscape) {
+            grid-area: logo;
+            justify-self: start;
+        }
+    }
+
+    .contacts {
+        @media (min-width: 1280px) and (orientation: landscape) {
+            grid-area: contacts;
+        }
+    }
+
+    .address {
+        @media (min-width: 1280px) and (orientation: landscape) {
+            grid-area: address;
+        }
+    }
+
+    .copyright {
+        justify-content: flex-end;
+        align-content: flex-end;
+        @media (min-width: 1280px) and (orientation: landscape) {
+            grid-area: copyright;
+        }
+    }
+}

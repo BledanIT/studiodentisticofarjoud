@@ -1,0 +1,25 @@
+@import "../../styles.scss";
+@import "../app.component.scss";
+
+.pricing-sector {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem auto 16rem;
+    padding: 1rem;
+    width: 90%;
+    border-radius: 1rem;
+    @include containerShadow();
+
+    @media (min-width: 1280px) and (orientation: landscape) {
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem auto 16rem;
+        padding: 2rem;
+        width: 50%; 
+    }
+
+    & table {
+        background-color: white;
+    }
+}

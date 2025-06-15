@@ -1,0 +1,38 @@
+@import "../../styles.scss";
+@import "../app.component.scss";
+
+.appointment-sector {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem auto 16rem;
+    padding: 1rem;
+    width: 80%;
+    border-radius: 1rem;
+    @include containerShadow();
+
+    @media (min-width: 1280px) and (orientation: landscape) {
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem auto 16rem;
+        padding: 2rem;
+        width: 50%;
+    }
+
+    & table {
+        background-color: white;
+    }
+}
+
+.step-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.fields-container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+}

@@ -1,0 +1,5 @@
+<section [ngClass]="titleType ? homeClass : defaultClass">
+    <h1 [ngClass]="titleType ? homeTextClass : defaultTextClass">
+        <ng-content></ng-content>
+    </h1>
+</section>

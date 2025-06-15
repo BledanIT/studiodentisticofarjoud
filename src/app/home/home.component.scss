@@ -1,0 +1,53 @@
+@import "../../styles.scss";
+@import "../app.component.scss";
+
+.strong-title {
+    font-size: 4rem;
+
+    @media (min-width: 1280px) and (orientation: landscape) {
+        font-size: 10rem;
+    }
+}
+
+.presentation {
+    gap: 8rem;
+
+    .pres-sector {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 5rem;
+
+        @media (min-width: 1280px) and (orientation: landscape) {
+            flex-direction: row;
+
+            &:nth-of-type(2) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        & div {
+            width: 100%;
+
+            @media (min-width: 1280px) and (orientation: landscape) {
+                width: 50%;
+            }
+        }
+
+        & img {
+            object-fit: contain;
+            height: auto;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
+
+            @media (min-width: 1280px) and (orientation: landscape) {
+                height: 48rem;
+            }
+        }
+    }
+}
+
+.date-button {
+    text-align: center;
+    margin: 2rem auto;
+    font-weight: bold;
+}
