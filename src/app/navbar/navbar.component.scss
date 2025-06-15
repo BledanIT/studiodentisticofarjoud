@@ -1,0 +1,40 @@
+@import "../app.component.scss";
+
+nav {
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+mat-menu {
+    z-index: 9999;
+}
+
+.small-menu, .open-menu {
+    display: block;
+
+    @media (min-width: 1280px) and (orientation: landscape) {
+        display: none;
+    }
+}
+
+.large-menu {
+    display: none;
+
+    @media (min-width: 1280px) and (orientation: landscape) {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.date-button {
+    margin-left: 1rem;
+}
+
+.open-menu {
+    margin-right: 1rem;
+    cursor: pointer;
+}

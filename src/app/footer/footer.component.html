@@ -1,0 +1,39 @@
+<footer class="back-gradient bottom-0">
+    <h1 class="title-text text-white">Studi Dentistici<br><strong>Farjoud</strong></h1>
+    <section class="contacts d-flex flex-column text-white">
+        <div class="phone d-flex gap-2">
+            <mat-icon>phone</mat-icon>
+            <p>0123456789</p>
+        </div> 
+        <div class="mail d-flex gap-2">
+            <mat-icon>mail</mat-icon>
+            <p>mail&#64;mail.com</p>
+        </div>
+        <div class="iva d-flex gap-2">
+            <p>P.IVA</p>
+            <p>001122334455</p>
+        </div>
+    </section>
+    <section class="address d-flex flex-column text-white">
+        <div class="address-1 d-flex gap-2" *ngFor="let location of locations">
+            <mat-icon>location_on</mat-icon>
+            <p>{{location.title}}</p>
+        </div>
+        <!--<div class="address-2 d-flex gap-2">
+            <mat-icon>location_on</mat-icon>
+            <p>Via Canova 40, 10100, Torino (TO)</p>
+        </div>
+        <div class="address-3 d-flex gap-2">
+            <mat-icon>location_on</mat-icon>
+            <p>Via San Marino 88, 10137, Torino (TO)</p>
+        </div>
+        <div class="address-4 d-flex gap-2">
+            <mat-icon>location_on</mat-icon>
+            <p>Via Tino Dappiano 24, 13044, Crescentino (VC)</p>
+        </div>-->
+    </section>
+    <section class="copyright d-flex">
+        <p class="text-white">© Simone Galasso, 2025</p>
+    </section>
+</footer>
+

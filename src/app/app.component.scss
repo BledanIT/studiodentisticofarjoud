@@ -1,0 +1,36 @@
+@import "../styles.scss";
+
+$title-family: "Archivo Black", sans-serif;
+$color-gradient1: rgb(81, 226, 178);
+$color-gradient2: rgb(1, 165, 110);
+$color-primary: rgb(55, 196, 149);
+
+.back-gradient {
+    //background-color: black;
+    background: linear-gradient(160deg, $color-gradient1, $color-gradient2);
+}
+
+.title-text {
+    font-family: $title-family;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    @include logoShadow();
+
+    @media (min-width: 1280px) and (orientation: landscape) {
+        font-size: 1.5rem;
+    }
+
+    & strong {
+        font-size: 1.5rem;
+
+        @media (min-width: 1280px) and (orientation: landscape) {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.title-color-primary {
+    color: $color-primary;
+}

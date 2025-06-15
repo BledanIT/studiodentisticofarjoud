@@ -1,1 +1,67 @@
+$title-family: "Archivo Black", sans-serif;
+$paragraph-family: "Lato", sans-serif;
+$color-gradient1: rgb(81, 226, 178);
+$color-gradient2: rgb(1, 165, 110);
+$color-primary: rgb(55, 196, 149);
+$color-shadow: rgb(63, 63, 63);
+$breakpoint: (min-width: 1280px) and (orientation: landscape);
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$cyan-palette,
+      tertiary: mat.$green-palette,
+    ),
+    typography: Lato,
+    density: 0,
+  ));
+  @include mat.table-overrides((
+    header-headline-weight: bold,
+  ));
+}
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $paragraph-family;
+}
+
+@mixin textBlackOutline() {
+  text-shadow:
+    1px 1px 0 $color-shadow,
+    -1px 1px 0 $color-shadow,
+    -1px -1px 0 $color-shadow,
+    1px -1px 0 $color-shadow;
+}
+
+@mixin logoShadow() {
+  text-shadow: 0px 1px 1px $color-shadow;
+}
+
+@mixin containerShadow() {
+  box-shadow: 0px 3px 3px $color-shadow;
+}
+
+@mixin appearAnimation($duration: 1s) {
+  animation-name: appear;
+  animation-duration: $duration;
+  animation-timing-function: linear;
+}
+
+@keyframes appear {
+  from {opacity: 0; transform: translateY(20%);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@mixin greenLogoColor($cl1: $color-gradient1, $cl2: $color-gradient2) {
+  color: linear-gradient(160deg, $cl1, $cl2);
+}

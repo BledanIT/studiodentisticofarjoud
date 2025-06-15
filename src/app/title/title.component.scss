@@ -1,0 +1,33 @@
+@import "../../styles.scss";
+@import "../app.component.scss";
+
+.title-space {
+    height: 100%;
+    color: white;
+    text-shadow: none;
+    background: linear-gradient(160deg, $color-gradient1, $color-gradient2);
+}
+
+.title-space-green {
+    height: 100%;
+    @include greenLogoColor();
+    @include logoShadow();
+    background-color: white;
+}
+
+.title-text-big {
+    font-size: 2rem;
+    @include appearAnimation();
+
+    @media (min-width: 1280px) and (orientation: landscape) {
+        font-size: 6rem;
+    }
+
+    & strong {
+        font-size: 4rem;
+
+        @media (min-width: 1280px) and (orientation: landscape) {
+            font-size: 10rem;
+        }
+    }
+}
