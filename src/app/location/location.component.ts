@@ -6,7 +6,7 @@ import { LocationInfo, locations } from '../shared/models/locations';
 
 @Component({
   selector: 'app-location',
-  imports: [GoogleMapsModule],
+  imports: [GoogleMapsModule, CommonModule],
   templateUrl: './location.component.html',
   styleUrl: './location.component.scss'
 })

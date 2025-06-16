@@ -4,7 +4,7 @@
             <div class="maps-viewer">
                 <div class="map-container">
                     <google-map [center]="locations[locID].center" [zoom]="zoom" [options]="mapOptions">
-                    <map-marker *ngFor="let marker of locations[locID].markers" [position]="marker"></map-marker>
+                        <!--<map-marker *ngFor="let marker of locations[locID].markers" [position]="marker"></map-marker>-->
                     </google-map>
                 </div>
                 <iframe class="street-view" [src]="transformLink(locations[locID].streetView)" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
