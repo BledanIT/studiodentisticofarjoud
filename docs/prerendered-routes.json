@@ -1,0 +1,8 @@
+{
+  "routes": {
+    "/studiodentisticofarjoud": {},
+    "/studiodentisticofarjoud/appointment": {},
+    "/studiodentisticofarjoud/pricing": {},
+    "/studiodentisticofarjoud/where": {}
+  }
+}
