@@ -1,44 +1,6 @@
 <app-title [titleType]="false">Richiedi un<br>appuntamento</app-title>
 <section class="appointment-sector">
   <mat-stepper orientation="vertical" [linear]="false" #stepper>
-    <mat-step [stepControl]="appointmentFormFirst">
-      <form [formGroup]="appointmentFormFirst">
-        <ng-template matStepLabel>Scelta prestazione</ng-template>
-        <div class="step-container">
-          <div class="fields-container">
-            <mat-form-field>
-              <mat-label for="location">Studio Dentistico</mat-label>
-              <mat-select id="location" formControlName="location">
-                <mat-option [value]="-1">--</mat-option>
-                @for (studio of locations; track studio) {
-                  <mat-option [value]="studio.ID">{{studio.address}} {{studio.civicNumber}}, {{studio.city}}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label for="dentist">Dottore</mat-label>
-              <mat-select id="dentist" formControlName="dentist">
-                <mat-option [value]="-1">--</mat-option>
-                @for (dentista of dentists; track dentista) {
-                  <mat-option [value]="dentista.ID">{{dentista.qualifier}} {{dentista.firstName}} {{dentista.lastName}}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label for="intervention">Intervento</mat-label>
-              <mat-select id="intervention" formControlName="intervention">
-                @for (intervention of interventions; track intervention) {
-                  <mat-option [value]="intervention.ID">{{intervention.name}}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-          </div>
-        </div>
-        <div>
-          <button mat-button matStepperNext>Avanti</button>
-        </div>
-      </form>
-    </mat-step>
     <mat-step [stepControl]="appointmentFormSecond">
       <form [formGroup]="appointmentFormSecond">
         <ng-template matStepLabel>Generalità cliente</ng-template>
@@ -79,6 +41,44 @@
         </div>
         <div>
           <button mat-button matStepperPrevious>Indietro</button>
+          <button mat-button matStepperNext>Avanti</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="appointmentFormFirst">
+      <form [formGroup]="appointmentFormFirst">
+        <ng-template matStepLabel>Scelta prestazione</ng-template>
+        <div class="step-container">
+          <div class="fields-container">
+            <mat-form-field>
+              <mat-label for="location">Studio Dentistico</mat-label>
+              <mat-select id="location" formControlName="location">
+                <mat-option [value]="-1">--</mat-option>
+                @for (studio of locations; track studio) {
+                  <mat-option [value]="studio.ID">{{studio.address}} {{studio.civicNumber}}, {{studio.city}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label for="dentist">Dottore</mat-label>
+              <mat-select id="dentist" formControlName="dentist">
+                <mat-option [value]="-1">--</mat-option>
+                @for (dentista of dentists; track dentista) {
+                  <mat-option [value]="dentista.ID">{{dentista.qualifier}} {{dentista.firstName}} {{dentista.lastName}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label for="intervention">Intervento</mat-label>
+              <mat-select id="intervention" formControlName="intervention">
+                @for (intervention of interventions; track intervention) {
+                  <mat-option [value]="intervention.ID">{{intervention.name}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
           <button mat-button matStepperNext>Avanti</button>
         </div>
       </form>

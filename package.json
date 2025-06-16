@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:studiodentisticofarjoud": "node dist/studiodentisticofarjoud/server/server.mjs"
+    "serve:ssr:studiodentisticofarjoud": "node dist/studiodentisticofarjoud/server/server.mjs",
+    "github-build": "ng build --configuration production --base-href 'https://bledanit.github.io/studiodentisticofarjoud/'",
+    "github-deploy": "npx angular-cli-ghpages --dir=dist/studiodentisticofarjoud/browser --no-silent"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +41,7 @@
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "angular-cli-ghpages": "^2.0.3",
     "jasmine-core": "~5.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
