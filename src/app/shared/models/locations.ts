@@ -24,7 +24,7 @@ export const locations : LocationInfo[] = [
     CAP: 10100,
     city: "Torino",
     province: "(TO)",
-    description: "Sto cazzo di studio è il primo di una lunga serie, sede storica in centro molto figa e chic aperta da 30 anni. Mica noccioline, stronzi!"
+    description: "Studio centrale con il maggior volume di attività, garantisce la maggiore copertura oraria con la presenza di tutti i dottori."
   },
   {
     ID: 1,
@@ -37,7 +37,7 @@ export const locations : LocationInfo[] = [
     CAP: 10137,
     city: "Torino",
     province: "(TO)",
-    description: "Topo Gigio"
+    description: "Studio di più recente acquisizione, coordinato dal Dott. Mattia Farjoud."
   },
   {
     ID: 2,
@@ -50,7 +50,7 @@ export const locations : LocationInfo[] = [
     CAP: 10126,
     city: "Torino",
     province: "(TO)",
-    description: "Topo Gigione"
+    description: "Studio aperto da più di 10 anni, situato nei pressi della zona ospedaliera torinese."
   },
   {
     ID: 3,
@@ -63,7 +63,7 @@ export const locations : LocationInfo[] = [
     CAP: 13044,
     city: "Crescentino",
     province: "(VC)",
-    description: "Topo Gigietto"
+    description: "Sede storica di Crescentino, coordinata dal Dott. Farhad Farjoud."
   },
 ]
 

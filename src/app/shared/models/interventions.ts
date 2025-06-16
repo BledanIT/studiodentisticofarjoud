@@ -23,5 +23,11 @@ export const interventions : InterventionInfo[] = [
         name: "Devitalizzazione",
         duration: "1 ora e 30 minuti",
         price: 150
+    },
+    {
+        ID: 3,
+        name: "Diagnosi",
+        duration: "30 minuti",
+        price: 30
     }
 ]
