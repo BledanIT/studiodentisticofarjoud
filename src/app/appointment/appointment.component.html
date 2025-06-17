@@ -40,7 +40,6 @@
           </div>
         </div>
         <div>
-          <button mat-button matStepperPrevious>Indietro</button>
           <button mat-button matStepperNext>Avanti</button>
         </div>
       </form>
@@ -79,6 +78,7 @@
           </div>
         </div>
         <div>
+          <button mat-button matStepperPrevious>Indietro</button>
           <button mat-button matStepperNext>Avanti</button>
         </div>
       </form>
@@ -109,10 +109,24 @@
         </div>   
       </form>
     </mat-step>
+    <mat-step [stepControl]="appointmentFormFourth">
+      <form [formGroup]="appointmentFormFourth">
+        <ng-template matStepLabel>Consenso privacy e invio</ng-template>
+        <div class="step-container">
+          <div class="fields-container">
+            <a mat-button class="privacy-button" routerLink="/privacy">Leggi l'informativa sulla privacy</a>
+            <mat-checkbox id="privacyCheck" formControlName="privacyCheck">Dichiaro di aver letto e sottoscritto l'informativa sulla privacy (obbligatorio)</mat-checkbox>
+          </div>
+          <button mat-raised-button matStepperNext *ngIf="appointmentFormFourth.value.privacyCheck">Invia</button>
+        </div>
+        <div>
+          <button mat-button matStepperPrevious>Indietro</button>
+        </div>
+      </form>
+    </mat-step>
     <mat-step>
       <ng-template matStepLabel>Fatto</ng-template>
       <div class="step-container">
-        <button mat-raised-button>Invia</button>
         <p>La sua richiesta verrà valutata al più presto. Grazie.</p>
       </div>
       <div>
