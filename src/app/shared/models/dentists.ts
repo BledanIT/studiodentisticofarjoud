@@ -17,7 +17,7 @@ export const dentists : DentistInfo[] = [
         firstName: "Farhad",
         lastName: "Farjoud",
         age: 70,
-        birthday: new Date(54, 9, 22),
+        birthday: new Date(54, 10, 22),
         workYears: 42,
         workStart: new Date(88, 0, 1),
         description: "Capofamiglia e iniziatore dell'attività, dentista rinomato e con solida esperienza quarantennale."
