@@ -5,6 +5,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +17,7 @@ export const appConfig: ApplicationConfig = {
       ),
     ),
     provideClientHydration(withEventReplay()),
-    provideMomentDateAdapter(),
+    provideMomentDateAdapter(), provideFirebaseApp(() => initializeApp({ projectId: "bledan-studio-dentistico", appId: "1:60460424095:web:8ad149552352f1f40b3baa", storageBucket: "bledan-studio-dentistico.firebasestorage.app", apiKey: "AIzaSyDOyujh-DnR8qsBKS1Gbs3ZRcj2My24O6o", authDomain: "bledan-studio-dentistico.firebaseapp.com", messagingSenderId: "60460424095", measurementId: "G-9KT50PY9VY" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()),
     /*importProvidersFrom([
       provideFirebaseApp(() => initializeApp(firebaseConfig)),
       provideFirestore(() => getFirestore())

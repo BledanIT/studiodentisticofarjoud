@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { MaterialsModule } from '../materials/materials.module';
 import { TitleComponent } from '../title/title.component';
 import { LocationInfo, locations } from '../shared/models/locations';
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 @Component({
   selector: 'app-appointment',
-  imports: [CommonModule, ReactiveFormsModule, MaterialsModule, TitleComponent],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, MaterialsModule, TitleComponent],
   templateUrl: './appointment.component.html',
   styleUrl: './appointment.component.scss'
 })
@@ -34,6 +35,10 @@ export class AppointmentComponent {
   appointmentFormThird = new FormGroup({
     date: new FormControl('', [Validators.required]),
     startTime: new FormControl('', [Validators.required]),
+  });
+
+  appointmentFormFourth = new FormGroup({
+    privacyCheck: new FormControl(''),
   });
   
   time? : Date;
