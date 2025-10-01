@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { collection, collectionData, query } from '@angular/fire/firestore';
 import { MaterialsModule } from '../materials/materials.module';
 import { TitleComponent } from '../title/title.component';
 import { LocationInfo, locations } from '../shared/models/locations';
 import { DentistInfo, dentists } from '../shared/models/dentists';
 import { InterventionInfo, interventions } from '../shared/models/interventions';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { DatabaseService } from '../database.service';
+
 
 @Component({
   selector: 'app-appointment',
@@ -14,8 +17,10 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './appointment.component.html',
   styleUrl: './appointment.component.scss'
 })
-export class AppointmentComponent {
+export class AppointmentComponent implements OnInit{
   
+  constructor (private dbService : DatabaseService) {};
+
   appointmentFormFirst = new FormGroup({
     dentist: new FormControl(''),
     location: new FormControl(''),
@@ -45,4 +50,14 @@ export class AppointmentComponent {
   locations : LocationInfo[] = locations;
   dentists : DentistInfo[] = dentists;
   interventions : InterventionInfo[] = interventions;
+
+  locations2! : any[]; 
+  dentists2! : any[];
+  interventions2! : any[];
+
+  ngOnInit() {
+    this.dbService.getDatabase('locations').subscribe((res) => this.locations2 = res);
+    this.dbService.getDatabase('dentists').subscribe((res) => this.dentists2 = res);
+    this.dbService.getDatabase('interventions').subscribe((res) => this.interventions2 = res);
+  };
 }

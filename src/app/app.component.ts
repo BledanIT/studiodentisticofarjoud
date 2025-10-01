@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
+import { DatabaseService } from './database.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialsModule } from './materials/materials.module';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 import "moment/locale/it";
-import { DatabaseService } from './database.service';
+
 
 @Component({
   selector: 'app-root',
@@ -26,8 +27,7 @@ export class AppComponent implements OnInit {
   dbContent : any = [];
 
   refreshDB() {
-    this.dbService.GetDatabase('dentists').subscribe((res) => this.dbContent = res);
-    console.log(this.dbService.GetDatabase('dentists').subscribe((res) => this.dbContent = res));
+    this.dbService.getDatabase('dentists').subscribe((res) => this.dbContent = res);
   }
 
   ngOnInit(): void {

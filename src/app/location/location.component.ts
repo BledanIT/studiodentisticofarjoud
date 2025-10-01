@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer } from "@angular/platform-browser";
 import { GoogleMapsModule } from '@angular/google-maps';
 import { LocationInfo, locations } from '../shared/models/locations';
+import { DatabaseService } from '../database.service';
 
 @Component({
   selector: 'app-location',
@@ -10,9 +11,9 @@ import { LocationInfo, locations } from '../shared/models/locations';
   templateUrl: './location.component.html',
   styleUrl: './location.component.scss'
 })
-export class LocationComponent {
+export class LocationComponent implements OnInit{
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private dbService : DatabaseService) {}
 
   @Input() locID : number = 0;
   zoom = 17;
@@ -27,8 +28,13 @@ export class LocationComponent {
   };
 
   locations : LocationInfo[] = locations;
+  locations2! : any[];
   
   transformLink(link : string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(link);
+  }
+
+  ngOnInit(): void {
+    this.dbService.getDatabase('locations').subscribe((res) => this.locations2 = res);
   }
 }

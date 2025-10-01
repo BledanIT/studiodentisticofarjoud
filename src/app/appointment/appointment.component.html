@@ -53,7 +53,7 @@
               <mat-label for="location">Studio Dentistico</mat-label>
               <mat-select id="location" formControlName="location">
                 <mat-option [value]="-1">--</mat-option>
-                @for (studio of locations; track studio) {
+                @for (studio of locations2; track studio) {
                   <mat-option [value]="studio.ID">{{studio.address}} {{studio.civicNumber}}, {{studio.city}}</mat-option>
                 }
               </mat-select>
@@ -62,7 +62,7 @@
               <mat-label for="dentist">Dottore</mat-label>
               <mat-select id="dentist" formControlName="dentist">
                 <mat-option [value]="-1">--</mat-option>
-                @for (dentista of dentists; track dentista) {
+                @for (dentista of dentists2; track dentista) {
                   <mat-option [value]="dentista.ID">{{dentista.qualifier}} {{dentista.firstName}} {{dentista.lastName}}</mat-option>
                 }
               </mat-select>
@@ -70,8 +70,8 @@
             <mat-form-field>
               <mat-label for="intervention">Intervento</mat-label>
               <mat-select id="intervention" formControlName="intervention">
-                @for (intervention of interventions; track intervention) {
-                  <mat-option [value]="intervention.ID">{{intervention.name}}</mat-option>
+                @for (intervento of interventions2; track intervento) {
+                  <mat-option [value]="intervento.ID">{{intervento.name}}</mat-option>
                 }
               </mat-select>
             </mat-form-field>
