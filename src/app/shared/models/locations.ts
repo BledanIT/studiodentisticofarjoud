@@ -18,10 +18,10 @@ export const locations : LocationInfo[] = [
     center: { lat: 45.07215247567931, lng: 7.69305637331224 },
     markers: [{ lat: 45.07215247567931, lng: 7.69305637331224 }],
     streetView: "https://www.google.com/maps/embed?pb=!4v1742748152142!6m8!1m7!1sHnkzyJYROsF-MmrA4yEGLg!2m2!1d45.07167376540061!2d7.692937889865739!3f28.696787!4f0!5f0.7820865974627469",
-    title: "Corso San Maurizio 25, 10100, Torino (TO)",
+    title: "Corso San Maurizio 25, 10124, Torino (TO)",
     address: "Corso San Maurizio",
     civicNumber: 25,
-    CAP: 10100,
+    CAP: 10124,
     city: "Torino",
     province: "(TO)",
     description: "Studio centrale con il maggior volume di attività, garantisce la maggiore copertura oraria con la presenza di tutti i dottori."

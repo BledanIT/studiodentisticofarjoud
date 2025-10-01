@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
 import { MaterialsModule } from '../materials/materials.module';
 import { TitleComponent } from '../title/title.component';
 import { InterventionInfo, interventions } from '../shared/models/interventions';
@@ -9,7 +10,9 @@ import { InterventionInfo, interventions } from '../shared/models/interventions'
   templateUrl: './pricing.component.html',
   styleUrl: './pricing.component.scss'
 })
-export class PricingComponent {
+export class PricingComponent implements OnInit{
+
+  constructor(private dbService : DatabaseService) {};
 
   EuroCurrency = new Intl.NumberFormat('en-IT', {
     style: 'currency',
@@ -17,5 +20,9 @@ export class PricingComponent {
   });
 
   displayedColumns: string[] = ['name', 'duration', 'price'];
-  pricesArray = interventions;
+  pricesArray! : any[];//interventions;
+
+  ngOnInit(): void {
+    this.dbService.getDatabase('interventions').subscribe((res) => this.pricesArray = res);
+  }
 }

@@ -7,7 +7,8 @@ import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 export class DatabaseService {
 
   constructor(private fs : Firestore) { }
-  GetDatabase(category : string) {
+
+  getDatabase(category : string) {
     let dbCollection = collection(this.fs, category);
     return collectionData(dbCollection,{idField:'id'});
   }
