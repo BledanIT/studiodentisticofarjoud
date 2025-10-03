@@ -35,6 +35,6 @@ export class LocationComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.dbService.getDatabase('locations').subscribe((res) => this.locations2 = res);
+    this.dbService.getDatabase('locationFake').subscribe((res) => this.locations2 = res);
   }
 }

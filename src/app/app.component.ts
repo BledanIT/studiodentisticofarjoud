@@ -21,13 +21,13 @@ import "moment/locale/it";
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'studidentisticifarjoud';
+  title = 'studidentisticiitalia';
 
   constructor(private dbService : DatabaseService) { }
   dbContent : any = [];
 
   refreshDB() {
-    this.dbService.getDatabase('dentists').subscribe((res) => this.dbContent = res);
+    this.dbService.getDatabase('dentistFake').subscribe((res) => this.dbContent = res);
   }
 
   ngOnInit(): void {

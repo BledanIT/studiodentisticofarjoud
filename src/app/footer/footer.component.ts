@@ -18,6 +18,6 @@ export class FooterComponent implements OnInit {
   locations2! : any[];
 
   ngOnInit(): void {
-    this.dbService.getDatabase('locations').subscribe((res) => this.locations2 = res);
+    this.dbService.getDatabase('locationFake').subscribe((res) => this.locations2 = res);
   }
 }

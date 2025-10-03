@@ -56,8 +56,8 @@ export class AppointmentComponent implements OnInit{
   interventions2! : any[];
 
   ngOnInit() {
-    this.dbService.getDatabase('locations').subscribe((res) => this.locations2 = res);
-    this.dbService.getDatabase('dentists').subscribe((res) => this.dentists2 = res);
+    this.dbService.getDatabase('locationFake').subscribe((res) => this.locations2 = res);
+    this.dbService.getDatabase('dentistFake').subscribe((res) => this.dentists2 = res);
     this.dbService.getDatabase('interventions').subscribe((res) => this.interventions2 = res);
   };
 }
